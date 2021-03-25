@@ -29,7 +29,7 @@
               questions.
             </div>
             <div id="chooseCategory">
-              Wanna choose another category?
+              Wanna choose another category? yey or no?
 
               <a
                 href="https://twitter.com/messages/compose?recipient_id=1315961855148523521&text=Hello%20Christian%20I%20would%20like%20to%20choose%20other%20categories%20with%20headsUP"
