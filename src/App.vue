@@ -1,7 +1,6 @@
 
 <template> 
 <div id="app">
-  
 
     <Quiz @quiz-completed="handleQuizCompleted" :key="quizKey"
      
@@ -27,6 +26,7 @@ import Quiz from "@/components/Quiz.vue";
 import Modal from "@/components/Modal.vue";
 
 export default {
+ 
   name: "App",
   components: {
     Quiz,
@@ -80,6 +80,10 @@ footer {
 }
 
 #createdBy {
-  float: right;
+  float: right;  
 }
+
+.md-tabs + .md-tabs {
+    margin-top: 24px;
+  }
 </style>

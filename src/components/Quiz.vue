@@ -5,10 +5,26 @@
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#news">Course</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact">Take Quiz</a></li>
       <li><a href="#about">About</a></li>
     </ul>
     </div>
+  <div id = "navdesign">
+
+  </div>
+    <div class="column" style="background-color:black;">     
+    <a href="#Back"><h2>Back</h2></a>
+    <p id= "algebra">Algebra Course</p>
+    <!-- <button id = "takeQuizes"> Take Quiz 1</button>
+    <button id = "takeQuizes"> Take Quiz 2</button> -->
+    
+    <button id= "takeQuizes" v-on:click="fetchQuestions(0)"
+      >Take Quiz 1</button>
+      <button id= "takeQuizes" v-on:click="fetchQuestions(1)"
+      >Take Quiz 2</button> 
+    </div>
+    
+
 
     <div class = "multipleChoice-sidebar">
       <div class="correctAnswers">
@@ -35,36 +51,31 @@
     <button id= "cont" v-on:click="next()"
       v-show="showPopup"
       >continue</button>
-    <button id="showExplanationButton"  
+      <button id="showExplanationButton"  
     v-show="showPopup"
-    v-on:click="isHidden = !isHidden">{{ isHidden ? 'Show Explanation' : 'Hide Explanation' }}</button>
+    v-on:click="isHidden = !isHidden" >{{ isHidden ? 'Show Explanation' : 'Hide Explanation' }} </button>
     </div>
+   
          
   <!-- Other elements here -->
 <div class = "question">
-    <h1 v-html="loading ? 'Loading...' : currentQuestion.question"></h1>
-     <img class = "math-img" src="image-math.jpg" width="300" height="200">
-                  
-            
+  
+    <img v-bind:src="loading ? ' ' : currentQuestion.question" v-bind:alt="pic">
+
+    <!-- <h1 v-html="loading ? ' ' : currentQuestion.question"></h1> -->
+           
               
 </div>
-   <!-- <img id="logo-crown" src="@/assets/crown.svg" alt="headsUP Crown" /> --> 
-    <!--<h1 id="logo-headline">headsUP</h1> -->
-    <!-- New Section for User Statistics -->
-      
-  
-  <div v-if = "!isHidden" id="explanation">
+ 
+  <div v-if ="!isHidden" id="explanation">
     <h1>Explanation goes Here!</h1>
-    <p>
-Based on a new educational resource pack, schools have begun to develop a host of work including poetry, artwork and whole school Global Goal learning.
- The Story of Water is an arts based learning programme which aims to inspire teachers through creativity while meeting key National Curriculum objectives in Geography. The programme connects schools internationally, provides teachers with Continuing Professional Development (CPD) and educational resources and places artists in the classroom to create fabulous ‘water’ themed displays. Schools in Hounslow, Stockton-on-Tees, Coventry, Newham, Warrington, Halton, and Peterborough have started their two year journey joined by schools in Nigeria, Ghana, Lebanon, Tanzania and India with whom they are partnered. Based on a new educational resource pack, schools have begun to develop a host of work including poetry, artwork and whole school Global Goal learning.
- The Story of Water is an arts based learning programme which aims to inspire teachers through creativity while meeting key National Curriculum objectives in Geography. The programme connects schools internationally, provides teachers with Continuing Professional Development (CPD) and educational resources and places artists in the classroom to create fabulous ‘water’ themed displays. Schools in Hounslow, Stockton-on-Tees, Coventry, Newham, Warrington, Halton, and Peterborough have started their two year journey joined by schools in Nigeria, Ghana, Lebanon, Tanzania and India with whom they are partnered. Based on a new educational resource pack, schools have begun to develop a host of work including poetry, artwork and whole school Global Goal learning.
- The Story of Water is an arts based learning programme which aims to inspire teachers through creativity while meeting key National Curriculum objectives in Geography. The programme connects schools internationally, provides teachers with Continuing Professional Development (CPD) and educational resources and places artists in the classroom to create fabulous ‘water’ themed displays. Schools in Hounslow, Stockton-on-Tees, Coventry, Newham, Warrington, Halton, and Peterborough have started their two year journey joined by schools in Nigeria, Ghana, Lebanon, Tanzania and India with whom they are partnered. Based on a new educational resource pack, schools have begun to develop a host of work including poetry, artwork and whole school Global Goal learning.
- The Story of Water is an arts based learning programme which aims to inspire teachers through creativity while meeting key National Curriculum objectives in Geography. The programme connects schools internationally, provides teachers with Continuing Professional Development (CPD) and educational resources and places artists in the classroom to create fabulous ‘water’ themed displays. Schools in Hounslow, Stockton-on-Tees, Coventry, Newham, Warrington, Halton, and Peterborough have started their two year journey joined by schools in Nigeria, Ghana, Lebanon, Tanzania and India with whom they are partnered. Based on a new educational resource pack, schools have begun to develop a host of work including poetry, artwork and whole school Global Goal learning.
- The Story of Water is an arts based learning programme which aims to inspire teachers through creativity while meeting key National Curriculum objectives in Geography. The programme connects schools internationally, provides teachers with Continuing Professional Development (CPD) and educational resources and places artists in the classroom to create fabulous ‘water’ themed displays. Schools in Hounslow, Stockton-on-Tees, Coventry, Newham, Warrington, Halton, and Peterborough have started their two year journey joined by schools in Nigeria, Ghana, Lebanon, Tanzania and India with whom they are partnered. Based on a new educational resource pack, schools have begun to develop a host of work including poetry, artwork and whole school Global Goal learning.
- The Story of Water is an arts based learning programme which aims to inspire teachers through creativity while meeting key National Curriculum objectives in Geography. The programme connects schools internationally, provides teachers with Continuing Professional Development (CPD) and educational resources and places artists in the classroom to create fabulous ‘water’ themed displays. Schools in Hounslow, Stockton-on-Tees, Coventry, Newham, Warrington, Halton, and Peterborough have started their two year journey joined by schools in Nigeria, Ghana, Lebanon, Tanzania and India with whom they are partnered. Based on a new educational resource pack, schools have begun to develop a host of work including poetry, artwork and whole school Global Goal learning.
- The Story of Water is an arts based learning programme which aims to inspire teachers through creativity while meeting key National Curriculum objectives in Geography. The programme connects schools internationally, provides teachers with Continuing Professional Development (CPD) and educational resources and places artists in the classroom to create fabulous ‘water’ themed displays. Schools in Hounslow, Stockton-on-Tees, Coventry, Newham, Warrington, Halton, and Peterborough have started their two year journey joined by schools in Nigeria, Ghana, Lebanon, Tanzania and India with whom they are partnered. Based on a new educational resource pack, schools have begun to develop a host of work including poetry, artwork and whole school Global Goal learning.
- </p>
+    <img v-bind:src="loading ? ' ' : currentQuestion.solution" v-bind:alt="pic"> 
+    <img v-bind:src="loading ? ' ' : currentQuestion.videoId" v-bind:alt="url"> 
+    
+     <!-- {{this.question.solution}}  -->
+ 
+    
+
   </div>   
   </div>
 </template>
@@ -74,7 +85,8 @@ export default {
   name: "Quiz",
   
   data() {
-    return {   
+    return {
+        
       questions: [],
       loading: true,
       index: 0,
@@ -82,8 +94,10 @@ export default {
       isHidden: true,
       //nextQuestions: true
       isActive: true,
-      showPopup: false
-    };
+      showPopup: false,
+     // solu: Object
+      
+   };
   },
   computed: {
     currentQuestion() {
@@ -168,22 +182,31 @@ export default {
     },
   },
   methods: {
-    async fetchQuestions() {
-      this.loading = true;
-      let response = await fetch(
-        "http://localhost:3333/questions"
-      );
+    async fetchQuestions(quizId) {
 
+       let url = "http://localhost:3333/questions/";
+
+      this.loading = true;
+      let response = await fetch(       
+        url
+      //  "http://localhost:3333/questions" 
+      );
+      
 
       let jsonResponse = [];
       jsonResponse = await response.json();
       let index = 0; // index is used to identify single answer
-      let data = jsonResponse[0].results.map((question) => {
-        // put answers on question into single array
-        question.answers = [
+      
+      
+      let data = jsonResponse[quizId].results.map((question) => {
+      // Solutions.Solution = [question.videoId, question.Solution];
+        question.answers = [          
           question.correct_answer,
           ...question.incorrect_answers,
         ];
+      //console.log(question.solution)
+      
+        
         /* Shuffle question.answers array */
         for (let i = question.answers.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -193,11 +216,14 @@ export default {
           ];
         }
         // mention in Step 1
+       
         question.rightAnswer = null;
         question.key = index;
         index++;
         return question;
       });
+      this.solu = jsonResponse[quizId].results.solution
+      
       this.questions = data;
       this.loading = false;
     },
@@ -218,8 +244,14 @@ export default {
       for (let i = 0; i < allButtons.length; i++) {
         if (allButtons[i] === event.target) continue;
 
-        allButtons[i].setAttribute("disabled", "");
+        allButtons[i].setAttribute("disable", "");
       }
+      //  for (let i = 0; i < allButtons.length; i++) {
+      //   if (allButtons[i] === event.target) continue;
+
+      //   this.results[i].setAttribute("enable", "");
+      // }
+       
 
       /* Invoke checkAnswer to check Answer */
        this.checkAnswer(event, index);
@@ -242,6 +274,10 @@ export default {
           event.target.classList.add("rightAnswer");
           /* Set rightAnswer on question to true, computed property can track a streak out of 10 questions */
           this.questions[index].rightAnswer = true;
+          //question.correct_answer
+         
+          // this.questions[index].correct_answer = null;
+          
         } else {
           /* Mark users answer as wrong answer */
           event.target.classList.add("wrongAnswer");
@@ -255,6 +291,8 @@ export default {
             }
           });
         }
+      
+
       }
     },
     el: '#cont',
@@ -270,13 +308,23 @@ export default {
           );
         }
       
-    }
-  
+    },
+     explanations() {
+
+       console.log(this.question.solution)
+    //return this.question.solution
+      //  return this.solu
+
+    //   let a = this.jsonResponse[0].results
+    //   return a
+    //  // return jsonResponse[0].results.solution
+     },
   },
   mounted() {
     this.fetchQuestions();
   },
-};
+
+}
 </script>
 
 <style scoped>
@@ -333,7 +381,7 @@ button {
   box-sizing: border-box;
   padding: 1rem;
   margin: 0.3rem;
-  width: 47%;
+  width: 40%;
   background-color: rgba(100, 100, 100, 0.3);
   border: none;
   border-radius: 0.4rem;
@@ -417,7 +465,7 @@ button.showRightAnswer {
 
 /* Multiple choice side bar*/
 .multipleChoice-sidebar{
-  margin-right: 50px;
+  margin-right: 15px;
   position: absolute;;
   padding-top: 5em;
   right: 0;
@@ -430,16 +478,13 @@ button.showRightAnswer {
   
 }
 .question{
-  float: left;
-  width: 51%;
+   float: left; 
+  width: 45%;
   position: relative;
   margin-top: 2%;
   padding-bottom: 5%;
-  margin-bottom: 5%;
-  border-bottom-style: solid;
-  border-bottom-color: coral;
- 
-  
+  margin-right: 20%;
+    
 }
 
 #cont{
@@ -501,12 +546,9 @@ li a:hover:not(.active) {
   margin-bottom: 5em;
   position:relative;
   width:50%;
-  margin-left: 1em;
-  padding-right: 1em;
-  border-right-color: coral;
-  border-right-style: solid;
-  
- 
+  margin-left: 340px;
+  padding-right: 150px;
+
 }
 #hidee{
 position: fixed;
@@ -519,6 +561,56 @@ position: fixed;
 .math-img{
   padding-top: 1%;
   padding-left: 2%;
+}
+/* Create two equal columns that floats next to each other */
+.column {
+  /* background-image: url('/images-gradient.jpg'); */
+  text-align: right;
+  color: black;
+  float: left;
+  width: 18%;
+  padding: 10px;
+  height: 710px; /* Should be removed. Only for demonstration */
+
+  
+}
+.column a #algebra{
+  line-height: 5em;
+  text-decoration: none;
+  color: white;
+}
+.column a:hover:enabled {
+  transform: scale(1.02);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+
+.column a:focus {
+  outline: none;
+}
+
+.column a:active:enabled {
+  transform: scale(1.05);
+}
+#navdesign{
+
+  background-image: url('/Gradient_Background.jpg'); 
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 4em;
+  /* position: fixed; */
+  top: 0;
+  width:100%
+}
+#takeQuizes{
+  margin-top: 5%;;
+  float: right;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: white;
+  width: 50%;
 }
 </style>
 
